@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BitFit-Pt2</string>
+    <string name="add_entry">Add Entry</string>
+    <string name="write_diary_entry">Write Diary Entry</string>
+    <string name="save">save</string>
+    <string name="enter_title">Enter Title</string>
 </resources>
