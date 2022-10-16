@@ -68,6 +68,7 @@ class AddEntryActivity : AppCompatActivity() {
             Thread.sleep(500)
             diaryTitleEntry.text = ""
             diaryEntry.text = ""
+            this.finish()
         }
     }
 }
