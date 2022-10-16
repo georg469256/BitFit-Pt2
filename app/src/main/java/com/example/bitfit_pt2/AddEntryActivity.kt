@@ -1,6 +1,7 @@
 package com.example.bitfit_pt2
 
 import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,8 +10,14 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+import java.time.Instant
 
 class AddEntryActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_entry)
@@ -47,5 +54,20 @@ class AddEntryActivity : AppCompatActivity() {
 
         diaryTitleEntry.addTextChangedListener(InputTextWatcher())
         diaryEntry.addTextChangedListener(InputTextWatcher())
+
+        saveButton.setOnClickListener {
+            lifecycleScope.launch(IO) {
+                (application as DiaryApplication).db.diaryDao().insert(DiaryEntity(
+                    diaryTitleEntry.text.toString(),
+                    Instant.now(),
+                    diaryEntry.text.toString()
+                ))
+            }
+            closeKeyboard()
+            ///wait for insert to complete
+            Thread.sleep(500)
+            diaryTitleEntry.text = ""
+            diaryEntry.text = ""
+        }
     }
 }
