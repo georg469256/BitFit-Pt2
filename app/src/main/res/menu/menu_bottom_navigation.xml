@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/diaryTab"
+            android:enabled="true"
+            android:icon="@drawable/entries"
+            android:title="@string/diary_entries"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/dashboardTab"
+            android:enabled="true"
+            android:icon="@drawable/metrics"
+            android:title="@string/dashboard"
+            app:showAsAction="ifRoom" />
+</menu>
