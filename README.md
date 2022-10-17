@@ -2,7 +2,7 @@
 
 Submitted by: **Michael George**
 
-**Name of your app** is a health metrics app that allows users to track ... [TODO] 
+**BitFit-Pt2** is a health metrics app that allows users to track their diary entries
 
 Time spent: **6** hours spent in total
 
